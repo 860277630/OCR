@@ -1,0 +1,30 @@
+server:
+  port: 8088
+spring:
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+  http:
+    multipart:
+      enabled: true
+      max-file-size: 100MB
+      max-request-size: 100MB
+
+
+aliyun:
+  ocr:
+    request:
+      host: https://tysbgpu.market.alicloudapi.com  #总服务器地址
+      path: /api/predict/ocr_general                #服务器路径
+      appcode: 3df43acfef7c4de6959b100dcf29dc12     #认证token
+      method: POST                                  #请求方式
+    config:
+      min_size: 16                                 #图片中文字的最小高度，单位像素
+      output_prob: true                            #是否输出文字框的概率
+      output_keypoints: false                      #是否输出文字框角点
+      skip_detection: false                        #是否跳过文字检测步骤直接进行文字识别
+      without_predicting_direction: false          #是否关闭文字行方向预测
+      language: sx                                 #当skip_detection为true时，该字段才生效，做单行手写识别
+
+
